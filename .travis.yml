@@ -8,6 +8,7 @@ install:
   - sudo apt-get install -y ghc
   - sudo apt-get install -y mono-devel mono-gmcs
   - sudo apt-get install -y scala
+  - curl -sSf https://static.rust-lang.org/rustup.sh | sudo sh
 
 script:
   - make build
