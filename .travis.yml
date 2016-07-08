@@ -5,8 +5,9 @@ sudo: required
 dist: trusty
 
 install:
-  - sudo apt-get install -y scala
+  - sudo apt-get install -y ghc
   - sudo apt-get install -y mono-devel mono-gmcs
+  - sudo apt-get install -y scala
 
 script:
   - make build
