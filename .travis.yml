@@ -8,12 +8,12 @@ install:
   - sudo apt-get install -y gnustep-devel
   - sudo apt-get install -y ghc
   - sudo apt-get install -y mono-devel mono-gmcs
+  - wget http://www.scala-lang.org/files/archive/scala-2.11.8.deb; sudo dpkg -i scala-2.11.8.deb
   - curl -sSf https://static.rust-lang.org/rustup.sh | sudo sh
   - curl -s get.sdkman.io | bash
   - source /home/travis/.sdkman/bin/sdkman-init.sh
   - yes | sdk install groovy
   - yes | sdk install kotlin
-  - yes | sdk install scala
   - wget http://downloads.dlang.org/releases/2016/dmd_2.071.1-0_amd64.deb; sudo dpkg -i dmd_2.071.1-0_amd64.deb
 
 script:
