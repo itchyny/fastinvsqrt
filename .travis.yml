@@ -14,6 +14,7 @@ install:
   - yes | sdk install groovy
   - yes | sdk install kotlin
   - yes | sdk install scala
+  - wget http://downloads.dlang.org/releases/2016/dmd_2.071.1-0_amd64.deb; sudo dpkg -i dmd_2.071.1-0_amd64.deb
 
 script:
   - make build
