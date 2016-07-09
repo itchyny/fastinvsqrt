@@ -5,6 +5,7 @@ sudo: required
 dist: trusty
 
 install:
+  - sudo apt-get install -y gnustep-devel
   - sudo apt-get install -y ghc
   - sudo apt-get install -y mono-devel mono-gmcs
   - curl -sSf https://static.rust-lang.org/rustup.sh | sudo sh
