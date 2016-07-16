@@ -13,7 +13,9 @@ install:
   - wget https://github.com/JetBrains/kotlin/releases/download/v1.0.3/kotlin-compiler-1.0.3.zip; unzip kotlin-compiler-1.0.3.zip; export PATH=$PWD/kotlinc/bin:$PATH
   - wget http://downloads.dlang.org/releases/2016/dmd_2.071.1-0_amd64.deb; sudo dpkg -i dmd_2.071.1-0_amd64.deb
   - sudo apt-get install -y php5
+  - wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb; sudo dpkg -i erlang-solutions_1.0_all.deb; sudo apt-get update
   - sudo apt-get install -y erlang
+  - sudo apt-get install -y elixir
   - npm install -g coffee-script
   - npm install -g typescript ts-node
   - wget http://www.jsoftware.com/download/j805/install/j805_linux64.tar.gz; tar xzvf j805_linux64.tar.gz; export PATH=$PWD/j64-805/bin:$PATH
