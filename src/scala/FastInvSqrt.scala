@@ -9,9 +9,9 @@ object FastInvSqrt {
   }
 
   def fastInvSqrt(x: Float): Float = {
-    val i = java.lang.Float.floatToRawIntBits(x);
-    val y = java.lang.Float.intBitsToFloat(0x5f3759df - (i >> 1));
-    return y * (1.5F - 0.5F * x * y * y);
+    val i = java.lang.Float.floatToRawIntBits(x)
+    val y = java.lang.Float.intBitsToFloat(0x5f3759df - (i >> 1))
+    y * (1.5F - 0.5F * x * y * y)
   }
 
 }
