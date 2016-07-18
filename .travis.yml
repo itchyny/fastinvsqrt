@@ -7,7 +7,7 @@ dist: trusty
 install:
   - sudo apt-get install -y gnustep-devel
   - sudo apt-get install -y ghc
-  - sudo apt-get install -y mono-devel mono-gmcs
+  - sudo apt-get install -y mono-devel mono-gmcs mono-complete fsharp
   - wget http://www.scala-lang.org/files/archive/scala-2.11.8.deb; sudo dpkg -i scala-2.11.8.deb
   - curl -sSf https://static.rust-lang.org/rustup.sh | sudo sh
   - wget https://github.com/JetBrains/kotlin/releases/download/v1.0.3/kotlin-compiler-1.0.3.zip; unzip kotlin-compiler-1.0.3.zip; export PATH=$PWD/kotlinc/bin:$PATH
