@@ -13,10 +13,10 @@ fastInvSqrt = (x) ->
 
 floatToUInt32 = (x) ->
   buf = new ArrayBuffer 4
-  (new Float32Array buf)[0] = x
+  (new Float32Array(buf))[0] = x
   new Uint32Array(buf)[0]
 
 uint32ToFloat = (i) ->
   buf = new ArrayBuffer 4
-  (new Uint32Array buf)[0] = i
+  (new Uint32Array(buf))[0] = i
   new Float32Array(buf)[0]
