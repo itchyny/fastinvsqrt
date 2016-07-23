@@ -10,6 +10,7 @@ install:
   - sudo apt-get install -y mono-devel mono-gmcs mono-complete mono-vbnc fsharp
   - wget http://www.scala-lang.org/files/archive/scala-2.11.8.deb; sudo dpkg -i scala-2.11.8.deb
   - curl -sSf https://static.rust-lang.org/rustup.sh | sudo sh
+  - wget https://swift.org/builds/swift-2.2.1-release/ubuntu1404/swift-2.2.1-RELEASE/swift-2.2.1-RELEASE-ubuntu14.04.tar.gz && tar xzvf swift-2.2.1-RELEASE-ubuntu14.04.tar.gz && export PATH=$PWD/swift-2.2.1-RELEASE-ubuntu14.04/usr/bin:$PATH
   - wget https://github.com/JetBrains/kotlin/releases/download/v1.0.3/kotlin-compiler-1.0.3.zip; unzip kotlin-compiler-1.0.3.zip; export PATH=$PWD/kotlinc/bin:$PATH
   - sudo apt-get install -y groovy
   - wget http://downloads.dlang.org/releases/2016/dmd_2.071.1-0_amd64.deb; sudo dpkg -i dmd_2.071.1-0_amd64.deb
