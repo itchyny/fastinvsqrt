@@ -18,6 +18,7 @@ install:
   - sudo apt-get install -y erlang
   - sudo apt-get install -y elixir
   - curl http://dist.crystal-lang.org/apt/setup.sh | sudo bash; sudo apt-get install -y crystal
+  - npm install -g bower
   - npm install -g coffee-script
   - npm install -g livescript
   - npm install -g typescript ts-node
