@@ -19,6 +19,7 @@ install:
   - sudo apt-get install -y elixir
   - curl http://dist.crystal-lang.org/apt/setup.sh | sudo bash; sudo apt-get install -y crystal
   - npm install -g coffee-script
+  - npm install -g livescript
   - npm install -g typescript ts-node
   - sudo apt-get install -y libedit-dev; wget http://www.jsoftware.com/download/j805/install/j805_linux64.tar.gz; tar xzvf j805_linux64.tar.gz; export PATH=$PWD/j64-805/bin:$PATH
   - sudo apt-get install -y gauche
