@@ -1,18 +1,8 @@
 fastInvSqrt <- function(x) {
-  i <- floatToInteger(x)
+  i <- readBin(writeBin(as.numeric(x), raw(), size=4), integer(), size=4)
   i <- 0x5f3759df - bitwShiftR(i, 1)
-  y <- integerToFloat(i)
+  y <- readBin(writeBin(as.integer(i), raw(), size=4), double(), size=4)
   y * (1.5 - 0.5 * x * y * y)
-}
-
-floatToInteger <- function(x) {
-  v <- writeBin(as.numeric(x), raw(), size=4)
-  readBin(v, integer(), size=4)
-}
-
-integerToFloat <- function(i) {
-  v <- writeBin(as.integer(i), raw(), size=4)
-  readBin(v, double(), size=4)
 }
 
 f <- file("stdin")
