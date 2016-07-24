@@ -1,9 +1,9 @@
 use std::io::BufRead;
 
 fn fast_inv_sqrt(x: f32) -> f32 {
-    let mut i = unsafe { *std::mem::transmute::<&f32, &i32>(&x) };
-    i = 0x5f3759df - (i >> 1);
-    let y = unsafe { *std::mem::transmute::<&i32, &f32>(&i) };
+    let i = unsafe { *std::mem::transmute::<&f32, &i32>(&x) };
+    let j = 0x5f3759df - (i >> 1);
+    let y = unsafe { *std::mem::transmute::<&i32, &f32>(&j) };
     return y * (1.5 - 0.5 * x * y * y);
 }
 
