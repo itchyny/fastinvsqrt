@@ -174,7 +174,7 @@ exit ''
 ```
 
 ### F# #
-F# is a .NET language so looking through the MSDN document gave me the way to convert to/from the bite arrays.
+F# is a .NET language so looking through the MSDN document gave me the way to convert to/from the byte arrays.
 ```fsharp
 let fastinvsqrt(x: float32): float32 =
     let i = System.BitConverter.ToInt32(System.BitConverter.GetBytes(x), 0)
