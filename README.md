@@ -250,3 +250,6 @@ parse_float(Str) ->
 
 ## Author
 itchyny (https://github.com/itchyny)
+
+Some codes were written by other people. Thank you so much.
+- The credit of the Smalltalk version goes to sumin [#2](https://github.com/itchyny/fastinvsqrt/pull/2).
