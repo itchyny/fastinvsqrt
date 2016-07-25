@@ -1,6 +1,7 @@
 NAME = fastinvsqrt
 EXT = st
 RUN = gst
+FLAGS = -g
 SOURCE = $(NAME).$(EXT)
 CHECK_EXEC = ../../script/check_exec.sh
 
@@ -11,7 +12,7 @@ build:
 
 run: build
 	@$(CHECK_EXEC) $(RUN)
-	@$(RUN) $(SOURCE) < /dev/stdin
+	@$(RUN) $(FLAGS) $(SOURCE) < /dev/stdin
 
 clean:
 
