@@ -219,7 +219,7 @@ fastInvSqrt x =
 How cool the binary pattern match is.
 I have never experienced this language but I think I want to learn more.
 The tests on Travis show that the performance of this code is bad.
-If you have any idea of improving the performance, please let me now from the issue tracker.
+If you have any idea of improving the performance, please let me know from the issue tracker.
 ```erlang
 -module(fastinvsqrt).
 -export([main/0, fast_inv_sqrt/1]).
