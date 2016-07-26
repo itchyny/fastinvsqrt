@@ -252,4 +252,4 @@ parse_float(Str) ->
 itchyny (https://github.com/itchyny)
 
 Some codes were written by other people. Thank you so much.
-- The credit of the Smalltalk version goes to sumin [#2](https://github.com/itchyny/fastinvsqrt/pull/2).
+- The credit of the Smalltalk version goes to sumim [#2](https://github.com/itchyny/fastinvsqrt/pull/2).
