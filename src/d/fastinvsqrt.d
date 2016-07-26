@@ -4,8 +4,7 @@ import std.string;
 
 void main()
 {
-    string line;
-    while ((line = readln()) !is null)
+    foreach (line; stdin.byLine())
     {
         try
         {
