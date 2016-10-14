@@ -10,9 +10,8 @@ fn fast_inv_sqrt(x: f32) -> f32 {
 fn main() {
     let stdin = std::io::stdin();
     for line in stdin.lock().lines().filter_map(|x| x.ok()) {
-        match line.parse::<f32>() {
-            Ok(x) => println!("{}", fast_inv_sqrt(x)),
-            Err(_) => {},
+        if let Ok(x) = line.parse() {
+            println!("{}", fast_inv_sqrt(x));
         }
     }
 }
