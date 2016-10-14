@@ -14,7 +14,7 @@ int main(void) {
   float x;
   while (getline(&line, &size, stdin) != -1) {
     x = strtof(line, &endptr);
-    if (*endptr == '\n') {
+    if (endptr != line) {
       printf("%f\n", fastInvSqrt(x));
     }
   }
