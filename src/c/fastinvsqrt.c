@@ -10,7 +10,7 @@ float fastInvSqrt(float x) {
 
 int main(void) {
   char *line = NULL, *endptr = NULL;
-  size_t size;
+  size_t size = 0;
   float x;
   while (getline(&line, &size, stdin) != -1) {
     x = strtof(line, &endptr);
