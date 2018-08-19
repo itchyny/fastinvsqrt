@@ -1,7 +1,7 @@
 NAME = fastinvsqrt
 EXT = s
 EXEC = gcc
-FLAGS = -g -O2
+FLAGS = -g -O2 -m32
 BUILD = build
 SOURCE = $(NAME).$(EXT)
 TARGET = $(BUILD)/$(NAME)
