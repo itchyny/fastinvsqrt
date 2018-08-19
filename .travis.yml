@@ -6,6 +6,7 @@ dist: trusty
 
 install:
   - script/install.sh "sudo apt-get install -y gnustep-devel"
+  - script/install.sh "sudo dpkg --add-architecture i386; sudo apt-get update; sudo apt-get install -y libc6:i386 gcc-multilib"
   - script/install.sh "sudo apt-get install -y ghc"
   - script/install.sh "sudo apt-get install -y mono-devel mono-gmcs mono-complete mono-vbnc fsharp"
   - script/install.sh "wget http://www.scala-lang.org/files/archive/scala-2.12.6.deb; sudo dpkg -i scala-2.12.6.deb"
