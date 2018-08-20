@@ -1,11 +1,11 @@
 #!/bin/bash
+
 for dir in src/*; do
-  (
-    echo "building ${dir##*/}"
-    cd $dir
-    make build
-    echo
-  )
+  pushd "$dir" >/dev/null
+  echo "building ${dir##*/}"
+  make build
+  echo
+  popd >/dev/null
 done
 
 exit 0
