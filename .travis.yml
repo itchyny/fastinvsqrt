@@ -24,7 +24,7 @@ install:
   - script/install.sh "curl http://dist.crystal-lang.org/apt/setup.sh | sudo bash; sudo apt-get install -y crystal"
   - script/install.sh "wget https://nim-lang.org/download/nim-0.18.0.tar.xz && tar xvf nim-0.18.0.tar.xz && cd nim-0.18.0 && sh build.sh"; export PATH=$PWD/nim-0.18.0/bin:$PATH
   - script/install.sh "npm install -g bower"
-  - script/install.sh "npm install -g coffee-script"
+  - script/install.sh "npm install -g coffeescript"
   - script/install.sh "npm install -g livescript"
   - script/install.sh "npm install -g typescript ts-node"
   - script/install.sh "npm install -g purescript pulp"
