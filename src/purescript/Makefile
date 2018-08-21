@@ -1,6 +1,6 @@
 NAME = FastInvSqrt
 EXT = purs
-EXEC = pulp
+EXEC = npm run pulp
 SOURCE = $(NAME).$(EXT)
 BUILD = build
 TARGET = $(BUILD)/src/Main.purs
@@ -9,23 +9,19 @@ CHECK_EXEC = ../../script/check_exec.sh
 
 all: build
 
-build: $(BUILD)/bower_components $(TARGET)
+build: $(BUILD)/node_modules $(TARGET)
 
-$(BUILD)/bower_components: bower.json
-	@$(CHECK_EXEC) bower
-	@$(MKDIR) $(BUILD)
-	-rm -rf $(BUILD)/bower_components
-	@cp bower.json $(BUILD)/
-	cd $(BUILD) && bower install
+$(BUILD)/node_modules: package.json psc-package.json
+	@$(MKDIR) $(BUILD)/src
+	@cp package.json psc-package.json $(BUILD)/
+	cd $(BUILD) && npm install && npm run psc-package install
 
 $(TARGET): $(SOURCE)
-	@$(CHECK_EXEC) $(EXEC)
 	@$(MKDIR) $(BUILD)/src
 	@cp $< $@
 
 run: build
-	@$(CHECK_EXEC) $(EXEC)
-	@cd $(BUILD) && $(EXEC) run < /dev/stdin
+	@cd $(BUILD) && $(EXEC) run --silent < /dev/stdin
 
 clean:
 	-rm -rf $(BUILD)

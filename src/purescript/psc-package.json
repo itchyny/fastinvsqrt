@@ -1,0 +1,15 @@
+{
+  "name": "fastinvsqrt",
+  "set": "psc-0.12.0-20180819",
+  "source": "https://github.com/purescript/package-sets.git",
+  "depends": [
+    "arraybuffer",
+    "console",
+    "effect",
+    "maybe",
+    "node-process",
+    "node-readline",
+    "partial",
+    "prelude"
+  ]
+}
