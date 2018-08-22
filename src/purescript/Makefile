@@ -9,9 +9,9 @@ CHECK_EXEC = ../../script/check_exec.sh
 
 all: build
 
-build: $(BUILD)/output/Main/index.js $(TARGET)
+build: $(BUILD)/node_modules $(TARGET)
 
-$(BUILD)/output/Main/index.js: package.json psc-package.json
+$(BUILD)/node_modules: package.json psc-package.json
 	@$(MKDIR) $(BUILD)/src
 	@cp package.json psc-package.json $(BUILD)/
 	cd $(BUILD) && npm install && npm run psc-package install
@@ -20,7 +20,7 @@ $(TARGET): $(SOURCE)
 	@$(MKDIR) $(BUILD)/src
 	@cp $< $@
 
-run: build
+run:
 	@cd $(BUILD) && $(EXEC) run --silent < /dev/stdin
 
 clean:
