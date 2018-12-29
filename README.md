@@ -1,4 +1,6 @@
-# Fast inverse square root in programming languages [![Travis Build Status](https://travis-ci.org/itchyny/fastinvsqrt.svg?branch=master)](https://travis-ci.org/itchyny/fastinvsqrt)
+# Fast inverse square root in programming languages
+[![Travis Build Status](https://travis-ci.org/itchyny/fastinvsqrt.svg?branch=master)](https://travis-ci.org/itchyny/fastinvsqrt) [![Number of languages](https://img.shields.io/badge/dynamic/json.svg?label=number%20of%20languages&url=https%3A%2F%2Fgh-langs-number.now.sh%2Fitchyny%2Ffastinvsqrt&query=number&colorB=blue)](https://api.github.com/repos/itchyny/fastinvsqrt/languages)
+
 This is a repository for my challenge of *writing Fast inverse square root algorithm in many languages*.
 
 Writing one algorithm in many languages is fun.
