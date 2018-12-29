@@ -9,8 +9,10 @@ TARGET = $(BUILD)/$(NAME).class
 MKDIR = mkdir -p
 CHECK_EXEC = ../../script/check_exec.sh
 
+.PHONY: all
 all: build
 
+.PHONY: build
 build: $(TARGET)
 
 $(TARGET): $(SOURCE)
@@ -18,11 +20,11 @@ $(TARGET): $(SOURCE)
 	@$(MKDIR) $(BUILD)
 	$(EXEC) $(FLAGS) $<
 
+.PHONY: run
 run: build
 	@$(CHECK_EXEC) $(RUN)
 	@$(RUN) -classpath $(BUILD) $(NAME) < /dev/stdin
 
+.PHONY: clean
 clean:
 	-rm -rf $(BUILD)
-
-.PHONY: build run clean
