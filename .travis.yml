@@ -1,6 +1,6 @@
 language: c
 
-dist: trusty
+dist: xenial
 
 install:
   - script/install.sh "sudo apt-get install -y gnustep-devel"
