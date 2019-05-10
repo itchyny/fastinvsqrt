@@ -9,7 +9,7 @@ install:
   - script/install.sh "sudo apt-get install -y mono-devel mono-gmcs mono-complete mono-vbnc fsharp"
   - script/install.sh "wget http://www.scala-lang.org/files/archive/scala-2.12.8.deb; sudo dpkg -i scala-2.12.8.deb"
   - script/install.sh "curl -sSf https://sh.rustup.rs | sudo sh -s -- -y"; export PATH=$HOME/.cargo/bin:$PATH
-  - script/install.sh "wget https://swift.org/builds/swift-4.2.2-release/ubuntu1404/swift-4.2.2-RELEASE/swift-4.2.2-RELEASE-ubuntu14.04.tar.gz && tar xzvf swift-4.2.2-RELEASE-ubuntu14.04.tar.gz"; export PATH=$PWD/swift-4.2.2-RELEASE-ubuntu14.04/usr/bin:$PATH
+  - script/install.sh "wget https://swift.org/builds/swift-5.0.1-release/ubuntu1604/swift-5.0.1-RELEASE/swift-5.0.1-RELEASE-ubuntu16.04.tar.gz && tar xzvf swift-5.0.1-RELEASE-ubuntu16.04.tar.gz"; export PATH=$PWD/swift-5.0.1-RELEASE-ubuntu16.04/usr/bin:$PATH
   - script/install.sh "wget https://github.com/JetBrains/kotlin/releases/download/v1.3.21/kotlin-compiler-1.3.21.zip; unzip kotlin-compiler-1.3.21.zip"; export PATH=$PWD/kotlinc/bin:$PATH
   - script/install.sh "sudo apt-get install -y groovy"
   - script/install.sh "wget http://downloads.dlang.org/releases/2.x/2.085.0/dmd_2.085.0-0_amd64.deb; sudo dpkg -i dmd_2.085.0-0_amd64.deb"
