@@ -7,7 +7,7 @@ install:
   - script/install.sh "sudo dpkg --add-architecture i386; sudo apt-get update; sudo apt-get install -y libc6:i386 gcc-multilib"
   - script/install.sh "sudo apt-get install -y ghc"
   - script/install.sh "sudo apt-get install -y mono-reference-assemblies-4.0 mono-devel mono-complete mono-vbnc fsharp"
-  - script/install.sh "wget http://www.scala-lang.org/files/archive/scala-2.12.8.deb; sudo dpkg -i scala-2.12.8.deb"
+  - script/install.sh "wget http://www.scala-lang.org/files/archive/scala-2.13.0.deb; sudo dpkg -i scala-2.13.0.deb"
   - script/install.sh "curl -sSf https://sh.rustup.rs | sudo sh -s -- -y"; export PATH=$HOME/.cargo/bin:$PATH
   - script/install.sh "wget https://swift.org/builds/swift-5.0.1-release/ubuntu1604/swift-5.0.1-RELEASE/swift-5.0.1-RELEASE-ubuntu16.04.tar.gz && tar xzvf swift-5.0.1-RELEASE-ubuntu16.04.tar.gz"; export PATH=$PWD/swift-5.0.1-RELEASE-ubuntu16.04/usr/bin:$PATH
   - script/install.sh "wget https://github.com/JetBrains/kotlin/releases/download/v1.3.21/kotlin-compiler-1.3.21.zip; unzip kotlin-compiler-1.3.21.zip"; export PATH=$PWD/kotlinc/bin:$PATH
