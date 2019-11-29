@@ -86,14 +86,14 @@ end
 ```
 
 ### Rust
-We know that pointer casting is surely an unsafe operation.
+There are `f32::to_bits`, `f32::from_bits` to convert the number types keeping the bits.
 ```rust
 use std::io::BufRead;
 
 fn fast_inv_sqrt(x: f32) -> f32 {
-    let i: u32 = unsafe { std::mem::transmute(x) };
+    let i = x.to_bits();
     let j = 0x5f3759df - (i >> 1);
-    let y: f32 = unsafe { std::mem::transmute(j) };
+    let y = f32::from_bits(j);
     y * (1.5 - 0.5 * x * y * y)
 }
 
