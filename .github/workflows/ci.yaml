@@ -1,0 +1,48 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@master
+    - name: Test
+      run: |
+        set -ux
+
+        script/install.sh "sudo apt-get install -y gnustep-devel"
+        script/install.sh "sudo dpkg --add-architecture i386; sudo apt-get update; sudo apt-get install -y libc6:i386 gcc-multilib"
+        script/install.sh "sudo apt-get install -y ruby"
+        script/install.sh "sudo apt-get install -y ghc"
+        script/install.sh "sudo apt-get install -y mono-reference-assemblies-4.0 mono-devel mono-complete mono-vbnc fsharp"
+        script/install.sh "wget http://www.scala-lang.org/files/archive/scala-2.13.0.deb; sudo dpkg -i scala-2.13.0.deb"
+        script/install.sh "curl -sSf https://sh.rustup.rs | sudo sh -s -- -y"; export PATH=$HOME/.cargo/bin:$PATH
+        script/install.sh "wget https://swift.org/builds/swift-5.0.2-release/ubuntu1604/swift-5.0.2-RELEASE/swift-5.0.2-RELEASE-ubuntu16.04.tar.gz && tar xzvf swift-5.0.2-RELEASE-ubuntu16.04.tar.gz"; export PATH=$PWD/swift-5.0.2-RELEASE-ubuntu16.04/usr/bin:$PATH
+        script/install.sh "wget https://github.com/JetBrains/kotlin/releases/download/v1.3.41/kotlin-compiler-1.3.41.zip; unzip kotlin-compiler-1.3.41.zip"; export PATH=$PWD/kotlinc/bin:$PATH
+        script/install.sh "sudo apt-get install -y groovy"
+        script/install.sh "wget http://downloads.dlang.org/releases/2.x/2.087.0/dmd_2.087.0-0_amd64.deb; sudo dpkg -i dmd_2.087.0-0_amd64.deb"
+        script/install.sh "sudo apt-get install -y gnu-smalltalk"
+        script/install.sh "sudo apt-get install -y php5"
+        script/install.sh "wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb; sudo dpkg -i erlang-solutions_1.0_all.deb; sudo apt-get update"
+        script/install.sh "sudo apt-get install -y erlang"
+        script/install.sh "sudo apt-get install -y elixir"
+        script/install.sh "sudo apt-get install -y r-base"
+        script/install.sh "curl http://dist.crystal-lang.org/apt/setup.sh | sudo bash; sudo apt-get install -y crystal"
+        script/install.sh "wget https://nim-lang.org/download/nim-0.19.4.tar.xz && tar xvf nim-0.19.4.tar.xz && cd nim-0.19.4 && sh build.sh"; export PATH=$PWD/nim-0.19.4/bin:$PATH
+        script/install.sh "npm install -g bower"
+        script/install.sh "npm install -g coffeescript"
+        script/install.sh "npm install -g livescript"
+        script/install.sh "npm install -g typescript ts-node"
+        script/install.sh "npm install -g purescript pulp"
+        script/install.sh "sudo apt-get install -y libedit-dev; wget http://www.jsoftware.com/download/j805/install/j805_linux64.tar.gz; tar xzvf j805_linux64.tar.gz"; export PATH=$PWD/j64-805/bin:$PATH
+        script/install.sh "sudo apt-get install -y gauche"
+        script/install.sh "sudo apt-get install -y ocaml"
+        script/install.sh "wget http://repo1.maven.org/maven2/org/clojure/clojure/1.8.0/clojure-1.8.0.zip && unzip clojure-1.8.0.zip && mv clojure-1.8.0/clojure-1.8.0.jar src/clojure/"
+
+        make build
+        bash script/test.sh
+        make clean

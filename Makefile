@@ -1,5 +1,5 @@
 .PHONY: all
-all:
+all: build
 
 .PHONY: build
 build: script/build/validate
@@ -9,8 +9,6 @@ script/build/validate: script/validate.c
 	@mkdir -p script/build
 	@gcc $< -o $@ -lm
 
-# It's very weird but it does not work on Ubuntu?
-# Try `bash script/test.sh` from your shell.
 .PHONY: test
 test: build
 	@bash script/test.sh
