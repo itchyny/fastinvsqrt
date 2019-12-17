@@ -26,9 +26,11 @@ for dir in src/*; do
   popd >/dev/null
 done
 
-echo "Result"
-printf '%s\t%-8s\t%s\t%s\t%s\n' Time Name OK Fail Total
-grep -v 'N/A' "$resultfile" | sort -n
-grep    'N/A' "$resultfile" | sort
+{
+  echo "Result"
+  printf '%s\t%-8s\t%s\t%s\t%s\n' Time Name OK Fail Total
+  grep -v 'N/A' "$resultfile" | sort -n
+  grep    'N/A' "$resultfile" | sort
+} | tee result.txt
 
 exit 0

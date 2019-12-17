@@ -45,4 +45,9 @@ jobs:
 
         make build
         make test
-        make clean
+
+    - name: Clean up
+      run: make clean
+
+    - name: Output result
+      run: cat result.txt
