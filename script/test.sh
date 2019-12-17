@@ -10,7 +10,7 @@ for dir in src/*; do
   echo "Test $name"
   if make build > "$compileresult" 2>&1; then
     grep -a -v '^make' "$compileresult"
-    IFS=' ' output=($(../../script/build/validate 'seq 100000 | make run'))
+    IFS=' ' output=($(../../script/build/validate 'seq 100000 | make -s run'))
     if [ ${#output[@]} -eq 4 ]; then
       duration=${output[0]}; ok=${output[1]}; fail=${output[2]}; total=${output[3]}
       printf '%s\t%-8s\t%s\t%s\t%s\n' "$duration" "$name" "$ok" "$fail" "$total" | tee -a "$resultfile"
