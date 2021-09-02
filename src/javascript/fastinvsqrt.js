@@ -12,13 +12,11 @@ function fastInvSqrt(x) {
 }
 
 function floatToUInt32(x) {
-    const buf = new ArrayBuffer(4);
-    new Float32Array(buf)[0] = x;
+    const buf = Float32Array.of(x).buffer;
     return new Uint32Array(buf)[0];
 }
 
 function uint32ToFloat(i) {
-    const buf = new ArrayBuffer(4);
-    new Uint32Array(buf)[0] = i;
+    const buf = Uint32Array.of(i).buffer;
     return new Float32Array(buf)[0];
 }
