@@ -5,9 +5,9 @@ require('readline').createInterface({
 });
 
 function fastInvSqrt(x) {
-    let i = floatToUInt32(x);
-    i = 0x5f3759df - (i >> 1);
-    const y = uint32ToFloat(i);
+    const i = floatToUInt32(x);
+    const j = 0x5f3759df - (i >> 1);
+    const y = uint32ToFloat(j);
     return y * (1.5 - 0.5 * x * y * y);
 }
 
