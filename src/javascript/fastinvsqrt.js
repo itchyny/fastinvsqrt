@@ -1,6 +1,6 @@
 require('readline').createInterface({
     input: process.stdin,
-}).on('line', function(line) {
+}).on('line', (line) => {
     console.log(fastInvSqrt(parseFloat(line)));
 });
 
