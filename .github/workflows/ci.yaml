@@ -28,7 +28,7 @@ jobs:
         script/install.sh "wget https://swift.org/builds/swift-5.4.3-release/ubuntu2004/swift-5.4.3-RELEASE/swift-5.4.3-RELEASE-ubuntu20.04.tar.gz && tar xzvf swift-5.4.3-RELEASE-ubuntu20.04.tar.gz"; export PATH=$PWD/swift-5.4.3-RELEASE-ubuntu20.04/usr/bin:$PATH
         script/install.sh "wget https://github.com/JetBrains/kotlin/releases/download/v1.5.30/kotlin-compiler-1.5.30.zip; unzip kotlin-compiler-1.5.30.zip"; export PATH=$PWD/kotlinc/bin:$PATH
         script/install.sh "sudo apt-get install -y groovy"
-        script/install.sh "wget http://downloads.dlang.org/releases/2.x/2.087.0/dmd_2.087.0-0_amd64.deb; sudo dpkg -i dmd_2.087.0-0_amd64.deb"
+        script/install.sh "wget https://s3.us-west-2.amazonaws.com/downloads.dlang.org/releases/2021/dmd_2.097.2-0_amd64.deb; sudo dpkg -i dmd_2.097.2-0_amd64.deb"
         script/install.sh "sudo apt-get install -y gnu-smalltalk"
         script/install.sh "sudo apt-get install -y php5"
         script/install.sh "wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb; sudo dpkg -i erlang-solutions_1.0_all.deb; sudo apt-get update"
