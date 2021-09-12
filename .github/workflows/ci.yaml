@@ -40,7 +40,7 @@ jobs:
         script/install.sh "sudo npm install -g bower"
         script/install.sh "sudo npm install -g coffeescript"
         script/install.sh "sudo npm install -g livescript"
-        script/install.sh "sudo npm install -g typescript ts-node"
+        script/install.sh "sudo npm install -g typescript ts-node @types/node"
         script/install.sh "sudo npm install -g purescript pulp"
         script/install.sh "sudo apt-get install -y libedit-dev; wget http://www.jsoftware.com/download/j805/install/j805_linux64.tar.gz; tar xzvf j805_linux64.tar.gz"; export PATH=$PWD/j64-805/bin:$PATH
         script/install.sh "sudo apt-get install -y gauche"
