@@ -1,22 +1,19 @@
 require \readline
   .createInterface do
     input: process.stdin
-    output: process.null
   .on \line, (line) ->
     line |> parseFloat |> fastInvSqrt |> console.log
 
 fastInvSqrt = (x) ->
   i = floatToUInt32 x
-  i = 0x5f3759df - (i .>>. 1)
-  y = uint32ToFloat i
+  j = 0x5f3759df - (i .>>. 1)
+  y = uint32ToFloat j
   y * (1.5 - 0.5 * x * y * y)
 
 floatToUInt32 = (x) ->
-  buf = new ArrayBuffer 4
-  (new Float32Array buf).0 = x
+  buf = (Float32Array.of x).buffer
   (new Uint32Array buf).0
 
 uint32ToFloat = (i) ->
-  buf = new ArrayBuffer 4
-  (new Uint32Array buf).0 = i
+  buf = (Uint32Array.of i).buffer
   (new Float32Array buf).0
