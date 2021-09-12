@@ -1,25 +1,22 @@
 require('readline').createInterface({
     input: process.stdin,
-    output: process.null
-}).on('line', function(line) {
+}).on('line', (line) => {
     console.log(fastInvSqrt(parseFloat(line)));
 });
 
 function fastInvSqrt(x) {
-    var i = floatToUInt32(x);
-    i = 0x5f3759df - (i >> 1);
-    var y = uint32ToFloat(i);
+    const i = floatToUInt32(x);
+    const j = 0x5f3759df - (i >> 1);
+    const y = uint32ToFloat(j);
     return y * (1.5 - 0.5 * x * y * y);
 }
 
 function floatToUInt32(x) {
-    var buf = new ArrayBuffer(4);
-    new Float32Array(buf)[0] = x;
+    const buf = Float32Array.of(x).buffer;
     return new Uint32Array(buf)[0];
 }
 
 function uint32ToFloat(i) {
-    var buf = new ArrayBuffer(4);
-    new Uint32Array(buf)[0] = i;
+    const buf = Uint32Array.of(i).buffer;
     return new Float32Array(buf)[0];
 }
