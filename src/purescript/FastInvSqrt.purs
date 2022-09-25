@@ -1,12 +1,14 @@
 module Main where
 
-import Data.ArrayBuffer.ArrayBuffer (create)
-import Data.ArrayBuffer.DataView (whole, getInt32be, getFloat32be, setInt32be, setFloat32be)
+import Data.ArrayBuffer.DataView (whole, getInt32le, getFloat32le)
+import Data.ArrayBuffer.Typed (buffer, fromArray)
+import Data.ArrayBuffer.Types (Float32Array, Int32Array)
+import Data.Float32 (fromNumber', toNumber)
 import Data.Int.Bits (shr)
 import Data.Maybe (fromJust)
+import Data.Number (fromString)
 import Effect (Effect)
 import Effect.Console (logShow)
-import Global (readFloat)
 import Node.Process (stdin)
 import Node.ReadLine (setLineHandler, createInterface)
 import Partial.Unsafe (unsafePartial)
@@ -15,8 +17,8 @@ import Prelude
 main :: Effect Unit
 main = do
   interface <- createInterface stdin mempty
-  setLineHandler interface $ \line ->
-    logShow =<< fastInvSqrt (readFloat line)
+  flip setLineHandler interface $ \line ->
+    logShow =<< fastInvSqrt (unsafePartial $ fromJust $ fromString line)
 
 fastInvSqrt :: Number -> Effect Number
 fastInvSqrt x = do
@@ -27,12 +29,10 @@ fastInvSqrt x = do
 
 floatToUInt32 :: Number -> Effect Int
 floatToUInt32 x = do
-  dataView <- map whole $ create 4
-  setFloat32be dataView x 0
-  unsafePartial $ map fromJust $ getInt32be dataView 0
+  dataView <- whole <$> buffer <$> (fromArray [fromNumber' x] :: Effect Float32Array)
+  unsafePartial $ fromJust <$> getInt32le dataView 0
 
 uint32ToFloat :: Int -> Effect Number
 uint32ToFloat i = do
-  dataView <- map whole $ create 4
-  setInt32be dataView i 0
-  unsafePartial $ map fromJust $ getFloat32be dataView 0
+  dataView <- whole <$> buffer <$> (fromArray [i] :: Effect Int32Array)
+  unsafePartial $ toNumber <$> fromJust <$> getFloat32le dataView 0
