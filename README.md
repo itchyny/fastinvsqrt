@@ -109,7 +109,7 @@ fn main() {
 
 ### Perl
 The pack and unpack is useful in this challenge for scripting languages (PHP, Ruby, Python etc).
-Somehow the speed of this code is crazy fast on the Travis test.
+Somehow this code runs very fast as compiled languages.
 ```perl
 use strict;
 use warnings;
@@ -216,7 +216,7 @@ fastInvSqrt x =
 ### Erlang
 How cool the binary pattern match is.
 I have never experienced this language but I think I want to learn more.
-The tests on Travis show that the performance of this code is bad.
+The test results show that the performance of this code is bad.
 If you have any idea of improving the performance, please let me know from the issue tracker.
 ```erlang
 -module(fastinvsqrt).
