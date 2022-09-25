@@ -46,6 +46,7 @@ jobs:
         script/install.sh "sudo apt-get install -y gauche"
         script/install.sh "sudo apt-get install -y ocaml"
         script/install.sh "wget -O src/clojure/clojure-1.8.0.jar https://repo1.maven.org/maven2/org/clojure/clojure/1.8.0/clojure-1.8.0.jar"
+        script/install.sh "curl -sSfL -o zig.tar.xz https://ziglang.org/builds/zig-linux-x86_64-0.10.0-dev.4166+cae76d829.tar.xz && mkdir -p zig && tar xvf zig.tar.xz -C zig --strip-components 1" && export PATH=$PWD/zig:$PATH
 
         make build
         make test
