@@ -42,7 +42,7 @@ jobs:
         script/install.sh "sudo npm install -g livescript"
         script/install.sh "sudo npm install -g typescript ts-node @types/node"
         script/install.sh "sudo npm install -g purescript pulp"
-        script/install.sh "sudo apt-get install -y libedit-dev; wget http://www.jsoftware.com/download/j805/install/j805_linux64.tar.gz; tar xzvf j805_linux64.tar.gz"; export PATH=$PWD/j64-805/bin:$PATH
+        script/install.sh "curl -sSfL -o j.tar.gz http://www.jsoftware.com/download/j903/install/j903_linux64.tar.gz && mkdir -p j && tar xvf j.tar.gz -C j --strip-components 1"; export PATH=$PWD/j/bin:$PATH
         script/install.sh "sudo apt-get install -y gauche"
         script/install.sh "sudo apt-get install -y ocaml"
         script/install.sh "wget -O src/clojure/clojure-1.8.0.jar https://repo1.maven.org/maven2/org/clojure/clojure/1.8.0/clojure-1.8.0.jar"
