@@ -25,7 +25,7 @@ jobs:
         script/install.sh "sudo apt-get install -y mono-mcs mono-devel mono-complete mono-vbnc fsharp"
         script/install.sh "wget https://www.scala-lang.org/files/archive/scala-2.13.6.deb; sudo dpkg -i scala-2.13.6.deb"
         script/install.sh "curl -sSf https://sh.rustup.rs | sudo sh -s -- -y"; export PATH=$HOME/.cargo/bin:$PATH
-        script/install.sh "wget https://swift.org/builds/swift-5.4.3-release/ubuntu2004/swift-5.4.3-RELEASE/swift-5.4.3-RELEASE-ubuntu20.04.tar.gz && tar xzvf swift-5.4.3-RELEASE-ubuntu20.04.tar.gz"; export PATH=$PWD/swift-5.4.3-RELEASE-ubuntu20.04/usr/bin:$PATH
+        script/install.sh "curl -sSfL -o swift.tar.gz https://download.swift.org/swift-5.7-release/ubuntu2004/swift-5.7-RELEASE/swift-5.7-RELEASE-ubuntu20.04.tar.gz && mkdir -p swift && tar xvf swift.tar.gz -C swift --strip-components 1"; export PATH=$PWD/swift/usr/bin:$PATH
         script/install.sh "wget https://github.com/JetBrains/kotlin/releases/download/v1.5.30/kotlin-compiler-1.5.30.zip; unzip kotlin-compiler-1.5.30.zip"; export PATH=$PWD/kotlinc/bin:$PATH
         script/install.sh "sudo apt-get install -y groovy"
         script/install.sh "wget https://s3.us-west-2.amazonaws.com/downloads.dlang.org/releases/2021/dmd_2.097.2-0_amd64.deb; sudo dpkg -i dmd_2.097.2-0_amd64.deb"
