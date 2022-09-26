@@ -1,5 +1,6 @@
 # Fast inverse square root in programming languages
-[![CI Status](https://github.com/itchyny/fastinvsqrt/workflows/CI/badge.svg)](https://github.com/itchyny/fastinvsqrt/actions) [![Number of languages](https://img.shields.io/badge/dynamic/json.svg?label=number%20of%20languages&url=https%3A%2F%2Fgh-langs-number.now.sh%2Fitchyny%2Ffastinvsqrt&query=number&colorB=blue)](https://api.github.com/repos/itchyny/fastinvsqrt/languages)
+[![CI Status](https://github.com/itchyny/fastinvsqrt/workflows/CI/badge.svg)](https://github.com/itchyny/fastinvsqrt/actions)
+[![Number of languages](https://img.shields.io/badge/languages-36-blue)](https://api.github.com/repos/itchyny/fastinvsqrt/languages)
 
 This is a repository for my challenge of *writing Fast inverse square root algorithm in many languages*.
 
