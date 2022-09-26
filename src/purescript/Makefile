@@ -3,7 +3,7 @@ EXT = purs
 EXEC = npm run pulp
 SOURCE = $(NAME).$(EXT)
 BUILD = build
-TARGET = $(BUILD)/src/Main.purs
+TARGET = $(BUILD)/output/Main/index.js
 MKDIR = mkdir -p
 CHECK_EXEC = ../../script/check_exec.sh
 
@@ -20,7 +20,8 @@ $(BUILD)/node_modules: package.json psc-package.json
 
 $(TARGET): $(SOURCE)
 	@$(MKDIR) $(BUILD)/src
-	@cp $< $@
+	@cp $< $(BUILD)/src
+	cd $(BUILD) && $(EXEC) build
 
 .PHONY: run
 run:
