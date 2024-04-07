@@ -11,8 +11,8 @@ pub fn main() anyerror!void {
 }
 
 fn fastInvSqrt(x: f32) f32 {
-    const i = @bitCast(i32, x);
-    const j = 0x5f3759df - (i >> 1);
-    const y = @bitCast(f32, j);
+    const i: i32 = @bitCast(x);
+    const j: i32 = 0x5f3759df - (i >> 1);
+    const y: f32 = @bitCast(j);
     return y * (1.5 - 0.5 * x * y * y);
 }
