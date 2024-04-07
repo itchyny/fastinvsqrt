@@ -28,7 +28,7 @@ jobs:
           script/install.sh "curl -sSfL -o scala.tar.gz https://github.com/scala/scala3/releases/download/3.4.1/scala3-3.4.1.tar.gz && mkdir -p scala && tar xvf scala.tar.gz -C scala --strip-components 1"; export PATH=$PWD/scala/bin:$PATH
           script/install.sh "curl -sSf https://sh.rustup.rs | sudo sh -s -- -y"; export PATH=$HOME/.cargo/bin:$PATH
           script/install.sh "curl -sSfL -o swift.tar.gz https://download.swift.org/swift-5.7-release/ubuntu2004/swift-5.7-RELEASE/swift-5.7-RELEASE-ubuntu20.04.tar.gz && mkdir -p swift && tar xvf swift.tar.gz -C swift --strip-components 1"; export PATH=$PWD/swift/usr/bin:$PATH
-          script/install.sh "curl -sSfL -o kotlinc.zip https://github.com/JetBrains/kotlin/releases/download/v1.7.10/kotlin-compiler-1.7.10.zip && unzip kotlinc.zip"; export PATH=$PWD/kotlinc/bin:$PATH
+          script/install.sh "curl -sSfL -o kotlinc.zip https://github.com/JetBrains/kotlin/releases/download/v1.9.23/kotlin-compiler-1.9.23.zip && unzip kotlinc.zip"; export PATH=$PWD/kotlinc/bin:$PATH
           script/install.sh "sudo apt-get install -y groovy"
           script/install.sh "curl -sSfL -o dmd.deb https://s3.us-west-2.amazonaws.com/downloads.dlang.org/releases/2022/dmd_2.100.2-0_amd64.deb && sudo dpkg -i dmd.deb"
           script/install.sh "sudo apt-get install -y gnu-smalltalk"
