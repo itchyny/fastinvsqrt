@@ -38,7 +38,7 @@ jobs:
           script/install.sh "sudo apt-get install -y elixir"
           script/install.sh "sudo apt-get install -y r-base"
           script/install.sh "curl http://dist.crystal-lang.org/apt/setup.sh | sudo bash; sudo apt-get install -y crystal"
-          script/install.sh "curl -sSfL -o nim.tar.xz https://nim-lang.org/download/nim-1.6.6-linux_x64.tar.xz && mkdir -p nim && tar xvf nim.tar.xz -C nim --strip-components 1"; export PATH=$PWD/nim/bin:$PATH
+          script/install.sh "curl -sSfL -o nim.tar.xz https://nim-lang.org/download/nim-2.0.2-linux_x64.tar.xz && mkdir -p nim && tar xvf nim.tar.xz -C nim --strip-components 1"; export PATH=$PWD/nim/bin:$PATH
           script/install.sh "sudo npm install -g bower"
           script/install.sh "sudo npm install -g coffeescript"
           script/install.sh "sudo npm install -g livescript"
