@@ -18,17 +18,18 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Test
+
+      - name: Install dependencies
         run: |
           script/install.sh "sudo apt-get install -y gnustep-devel"
           script/install.sh "sudo dpkg --add-architecture i386; sudo apt-get update; sudo apt-get install -y libc6:i386 gcc-multilib"
           script/install.sh "sudo apt-get install -y ruby"
           script/install.sh "sudo apt-get install -y ghc"
           script/install.sh "sudo apt-get install -y mono-mcs mono-devel mono-complete mono-vbnc fsharp"
-          script/install.sh "curl -sSfL -o scala.tar.gz https://github.com/scala/scala3/releases/download/3.4.1/scala3-3.4.1.tar.gz && mkdir -p scala && tar xvf scala.tar.gz -C scala --strip-components 1"; export PATH=$PWD/scala/bin:$PATH
-          script/install.sh "curl -sSf https://sh.rustup.rs | sudo sh -s -- -y"; export PATH=$HOME/.cargo/bin:$PATH
-          script/install.sh "curl -sSfL -o swift.tar.gz https://download.swift.org/swift-5.7-release/ubuntu2004/swift-5.7-RELEASE/swift-5.7-RELEASE-ubuntu20.04.tar.gz && mkdir -p swift && tar xvf swift.tar.gz -C swift --strip-components 1"; export PATH=$PWD/swift/usr/bin:$PATH
-          script/install.sh "curl -sSfL -o kotlinc.zip https://github.com/JetBrains/kotlin/releases/download/v1.9.23/kotlin-compiler-1.9.23.zip && unzip kotlinc.zip"; export PATH=$PWD/kotlinc/bin:$PATH
+          script/install.sh "curl -sSfL -o scala.tar.gz https://github.com/scala/scala3/releases/download/3.4.1/scala3-3.4.1.tar.gz && mkdir -p scala && tar xvf scala.tar.gz -C scala --strip-components 1"; echo "$PWD/scala/bin" >> "$GITHUB_PATH"
+          script/install.sh "curl -sSf https://sh.rustup.rs | sudo sh -s -- -y"; echo "$HOME/.cargo/bin" >> "$GITHUB_PATH"
+          script/install.sh "curl -sSfL -o swift.tar.gz https://download.swift.org/swift-5.7-release/ubuntu2004/swift-5.7-RELEASE/swift-5.7-RELEASE-ubuntu20.04.tar.gz && mkdir -p swift && tar xvf swift.tar.gz -C swift --strip-components 1"; echo "$PWD/swift/usr/bin" >> "$GITHUB_PATH"
+          script/install.sh "curl -sSfL -o kotlinc.zip https://github.com/JetBrains/kotlin/releases/download/v1.9.23/kotlin-compiler-1.9.23.zip && unzip kotlinc.zip"; echo "$PWD/kotlinc/bin" >> "$GITHUB_PATH"
           script/install.sh "sudo apt-get install -y groovy"
           script/install.sh "curl -sSfL -o dmd.deb https://s3.us-west-2.amazonaws.com/downloads.dlang.org/releases/2022/dmd_2.100.2-0_amd64.deb && sudo dpkg -i dmd.deb"
           script/install.sh "sudo apt-get install -y gnu-smalltalk"
@@ -38,21 +39,24 @@ jobs:
           script/install.sh "sudo apt-get install -y elixir"
           script/install.sh "sudo apt-get install -y r-base"
           script/install.sh "curl http://dist.crystal-lang.org/apt/setup.sh | sudo bash; sudo apt-get install -y crystal"
-          script/install.sh "curl -sSfL -o nim.tar.xz https://nim-lang.org/download/nim-2.0.2-linux_x64.tar.xz && mkdir -p nim && tar xvf nim.tar.xz -C nim --strip-components 1"; export PATH=$PWD/nim/bin:$PATH
+          script/install.sh "curl -sSfL -o nim.tar.xz https://nim-lang.org/download/nim-2.0.2-linux_x64.tar.xz && mkdir -p nim && tar xvf nim.tar.xz -C nim --strip-components 1"; echo "$PWD/nim/bin" >> "$GITHUB_PATH"
           script/install.sh "sudo npm install -g bower"
           script/install.sh "sudo npm install -g coffeescript"
           script/install.sh "sudo npm install -g livescript"
           script/install.sh "sudo npm install -g typescript ts-node @types/node"
           script/install.sh "sudo npm install -g purescript pulp"
-          script/install.sh "curl -sSfL -o j.tar.gz http://www.jsoftware.com/download/j903/install/j903_linux64.tar.gz && mkdir -p j && tar xvf j.tar.gz -C j --strip-components 1"; export PATH=$PWD/j/bin:$PATH
+          script/install.sh "curl -sSfL -o j.tar.gz http://www.jsoftware.com/download/j903/install/j903_linux64.tar.gz && mkdir -p j && tar xvf j.tar.gz -C j --strip-components 1"; echo "$PWD/j/bin" >> "$GITHUB_PATH"
           script/install.sh "sudo apt-get install -y gauche"
           script/install.sh "sudo apt-get install -y ocaml"
           script/install.sh "wget -O src/clojure/clojure-1.8.0.jar https://repo1.maven.org/maven2/org/clojure/clojure/1.8.0/clojure-1.8.0.jar"
-          script/install.sh "curl -sSfL -o zig.tar.xz https://ziglang.org/builds/zig-linux-x86_64-0.12.0-dev.3563+129de47a7.tar.xz && mkdir -p zig && tar xvf zig.tar.xz -C zig --strip-components 1" && export PATH=$PWD/zig:$PATH
-          script/install.sh "PATH=$HOME/.local/share/ponyup/bin:$PATH; curl -sSfL https://raw.githubusercontent.com/ponylang/ponyup/latest-release/ponyup-init.sh | sh && ponyup update ponyc release"; export PATH=$HOME/.local/share/ponyup/bin:$PATH
+          script/install.sh "curl -sSfL -o zig.tar.xz https://ziglang.org/builds/zig-linux-x86_64-0.12.0-dev.3563+129de47a7.tar.xz && mkdir -p zig && tar xvf zig.tar.xz -C zig --strip-components 1"; echo "$PWD/zig" >> "$GITHUB_PATH"
+          script/install.sh "PATH=$HOME/.local/share/ponyup/bin:$PATH; curl -sSfL https://raw.githubusercontent.com/ponylang/ponyup/latest-release/ponyup-init.sh | sh && ponyup update ponyc release"; echo "$HOME/.local/share/ponyup/bin" >> "$GITHUB_PATH"
 
-          make build
-          make test
+      - name: Build
+        run: make build
+
+      - name: Test
+        run: make test
 
       - name: Clean up
         run: make clean
