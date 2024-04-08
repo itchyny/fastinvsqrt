@@ -31,7 +31,7 @@ jobs:
           script/install.sh "mkdir swift && curl -fsSL https://download.swift.org/swift-5.7-release/ubuntu2004/swift-5.7-RELEASE/swift-5.7-RELEASE-ubuntu20.04.tar.gz | tar xz -C swift --strip-components 1"; echo "$PWD/swift/usr/bin" >> "$GITHUB_PATH"
           script/install.sh "curl -fsSL -o kotlinc.zip https://github.com/JetBrains/kotlin/releases/download/v1.9.23/kotlin-compiler-1.9.23.zip && unzip -q kotlinc.zip"; echo "$PWD/kotlinc/bin" >> "$GITHUB_PATH"
           script/install.sh "sudo apt-get install -y groovy"
-          script/install.sh "curl -fsSL -o dmd.deb https://s3.us-west-2.amazonaws.com/downloads.dlang.org/releases/2022/dmd_2.100.2-0_amd64.deb && sudo dpkg -i dmd.deb"
+          script/install.sh "curl -fsSL -o dmd.deb https://downloads.dlang.org/releases/2.x/2.108.0/dmd_2.108.0-0_amd64.deb && sudo dpkg -i dmd.deb"
           script/install.sh "sudo apt-get install -y gnu-smalltalk"
           script/install.sh "sudo apt-get install -y php5"
           script/install.sh "curl -fsSLO https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb; sudo dpkg -i erlang-solutions_1.0_all.deb; sudo apt-get update"
