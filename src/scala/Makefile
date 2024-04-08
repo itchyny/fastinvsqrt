@@ -5,7 +5,7 @@ RUN = scala
 FLAGS = -d $(BUILD)
 BUILD = build
 SOURCE = $(NAME).$(EXT)
-TARGET = $(BUILD)/$(NAME).class
+TARGET = $(BUILD)/main.class
 MKDIR = mkdir -p
 CHECK_EXEC = ../../script/check_exec.sh
 
@@ -23,7 +23,7 @@ $(TARGET): $(SOURCE)
 .PHONY: run
 run: build
 	@$(CHECK_EXEC) $(RUN)
-	@$(RUN) -classpath $(BUILD) $(NAME) < /dev/stdin
+	@$(RUN) -classpath $(BUILD) main < /dev/stdin
 
 .PHONY: clean
 clean:
